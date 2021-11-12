@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "917415263824",
-    "project_id": "ebusuaschoolapp-b6f31",
-    "storage_bucket": "ebusuaschoolapp-b6f31.appspot.com"
+    "project_number": "854729200653",
+    "project_id": "ebusuaschoolapp-5d0f6",
+    "storage_bucket": "ebusuaschoolapp-5d0f6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:917415263824:android:9b5baad3abf9863afb5b55",
+        "mobilesdk_app_id": "1:854729200653:android:b96bed5991ff75b7cf7144",
         "android_client_info": {
           "package_name": "com.example.ebusuaschoolapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "917415263824-3upuhbggb4sqe1nj7qr1gid9o3aje8bl.apps.googleusercontent.com",
+          "client_id": "854729200653-j24vlg2crtgi50411ecm48v6ncanl821.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAfiKOuOnWujzQ5uAvwf9AaK5w_DCklig8"
+          "current_key": "AIzaSyDGFKSu1ipMGdIPHXdfW5woJpBb8lcONlI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "917415263824-3upuhbggb4sqe1nj7qr1gid9o3aje8bl.apps.googleusercontent.com",
+              "client_id": "854729200653-j24vlg2crtgi50411ecm48v6ncanl821.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
