@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/Ebusua_icon_school_background.xml" value="0.2703125" />
+        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/custom_input.xml" value="0.2301801801801802" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/home_icon.xml" value="0.2703125" />
+        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_register.xml" value="0.20270270270270271" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/header.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/menu/main_menu.xml" value="0.25025641025641027" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.14635416666666667" />
