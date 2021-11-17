@@ -89,7 +89,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true;
+
+        // reset password event listener
+        if (item.getItemId() == R.id.resetUserPassword) {
+            startActivity(new Intent(getApplicationContext(),ResetPassword.class));
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

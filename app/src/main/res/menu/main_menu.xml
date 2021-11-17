@@ -26,6 +26,9 @@
            android:icon="@drawable/calendar">
 
        </item>
+       <item
+           android:id="@+id/resetUserPassword"
+           android:title="Reset Password" />
    </group>
 
 

@@ -1,8 +1,10 @@
 package com.example.ebusuaschoolapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
 
-    Button createAccountBtn, loginBtn;
+    Button createAccountBtn, loginBtn, forgotPasswordBtn;
     EditText username, password; // to extract data
     FirebaseAuth firebaseAuth;
 
@@ -39,6 +41,27 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.loginEmail);
         password = findViewById(R.id.loginPassword);
         loginBtn = findViewById(R.id.loginbtn);
+
+        forgotPasswordBtn = findViewById(R.id.forgotPasswordBtn);
+        forgotPasswordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // start alert dialog (when user clicks on the button
+                AlertDialog.Builder reset_alert = new AlertDialog.Builder(getApplicationContext());
+                reset_alert.setTitle("Forgot Password? Click continue to reset.")
+                        .setMessage("Enter your email to receive password reset link.")
+                        .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // validate email address
+                                // send reset link
+
+                            }
+                        }).setNegativeButton("Cancel", null)
+                        .create().show();
+
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
