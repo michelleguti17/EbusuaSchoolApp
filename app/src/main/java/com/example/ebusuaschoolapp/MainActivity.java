@@ -69,18 +69,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        // logout button onClick listener
-        //logout.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-           // public void onClick(View v) {
-        //FirebaseAuth.getInstance().signOut();
-        //startActivity(new Intent(getApplicationContext(), Login.class));
-        //finish();
-
-            //}
-        //});
 
     }
+
 
    // Make Menu Return
     @Override
