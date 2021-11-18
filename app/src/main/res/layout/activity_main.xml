@@ -98,7 +98,7 @@
                     app:cardBackgroundColor="#FFFFFF">
 
                     <RelativeLayout
-                        android:id="@+id/logoutBtn"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#D7F57C00"
@@ -106,23 +106,23 @@
                         android:gravity="center_horizontal|center_vertical">
 
                         <TextView
-                            android:id="@+id/login_main_text"
+                            android:id="@+id/courses_main_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/login_main_img"
+                            android:layout_below="@id/course_main_img"
                             android:layout_centerInParent="true"
                             android:layout_marginStart="-2dp"
-                            android:text="Login"
+                            android:text="Courses"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textColor="#FFFFFF"
                             android:textSize="20dp" />
 
                         <ImageView
-                            android:id="@+id/login_main_img"
+                            android:id="@+id/course_main_img"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            app:srcCompat="@drawable/user_login" />
+                            app:srcCompat="@drawable/course" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -209,7 +209,6 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            android:layout_centerVertical="true"
                             app:srcCompat="@drawable/calendar" />
 
                     </RelativeLayout>

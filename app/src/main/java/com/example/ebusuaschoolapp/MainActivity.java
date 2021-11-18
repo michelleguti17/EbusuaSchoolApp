@@ -1,10 +1,15 @@
 package com.example.ebusuaschoolapp;
 
+import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NotificationCompatSideChannelService;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -41,10 +45,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         auth = FirebaseAuth.getInstance();
 
         // logout button - Sanele
-        ImageView logout = findViewById(R.id.login_main_img); // changed from button
+        //ImageView logout = findViewById(R.id.logoutBtn); // changed from button
 
         //Change Status Bar Color
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.background_header_color));
+
 
         //Hooks
 
@@ -65,14 +70,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         // logout button onClick listener
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
-                finish();
-            }
-        });
+        //logout.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+           // public void onClick(View v) {
+        //FirebaseAuth.getInstance().signOut();
+        //startActivity(new Intent(getApplicationContext(), Login.class));
+        //finish();
+
+            //}
+        //});
 
     }
 
@@ -88,14 +94,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        // reset password event listener
-        if (item.getItemId() == R.id.resetUserPassword) {
-            startActivity(new Intent(getApplicationContext(),ResetPassword.class));
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_home:
+                Intent home = new Intent(MainActivity.this,MainActivity.class);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+                break;
+
+            case R.id.nav_login:
+                Intent login = new Intent(MainActivity.this,Login.class);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
+
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
 }
