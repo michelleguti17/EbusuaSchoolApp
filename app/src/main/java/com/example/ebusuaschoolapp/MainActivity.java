@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-
         switch(menuItem.getItemId()){
             case R.id.nav_home:
                 Intent home = new Intent(MainActivity.this,MainActivity.class);
@@ -100,9 +99,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
-
         }
-        return true;
+
+        // reset password event listener (on the menu options)
+        if (menuItem.getItemId() == R.id.resetUserPassword) {
+            startActivity(new Intent(getApplicationContext(),ResetPassword.class));
+        }
+
+        return super.onOptionsItemSelected(menuItem);
     }
 
 }

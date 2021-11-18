@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EbusuaSchoolApp">
         <activity
-            android:name=".StudentInfoApp"
+            android:name=".ResetPassword"
             android:exported="false" />
         <activity
             android:name=".Register"

@@ -14,9 +14,12 @@
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/menu/main_menu.xml" value="0.25025641025641027" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_menu.xml" value="0.22" />
         <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/kitom/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_student_info_app.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_reset_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/menu/option_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
