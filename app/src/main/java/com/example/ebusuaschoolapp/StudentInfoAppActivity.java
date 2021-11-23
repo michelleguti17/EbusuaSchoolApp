@@ -1,16 +1,28 @@
 package com.example.ebusuaschoolapp;
 
 import android.app.AlertDialog;
-        import android.content.Context;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-class StudentInfoAppActivity extends AppCompatActivity {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
+
+ class StudentInfoAppActivity extends AppCompatActivity {
     EditText editRollno;
     EditText editName;
     EditText editMarks;
@@ -22,12 +34,16 @@ class StudentInfoAppActivity extends AppCompatActivity {
     Button btnShowInfo;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info_app);
 
-// Initializing controls
+        // Change Status Bar Color-Michelle
+        getWindow().setStatusBarColor(ContextCompat.getColor(StudentInfoAppActivity.this, R.color.background_header_color));
+
+        // Initializing controls
 
         editRollno = (EditText) findViewById(R.id.e1);
         editName = (EditText) findViewById(R.id.e2);
@@ -51,8 +67,7 @@ class StudentInfoAppActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Checking empty fields
-                if(editRollno.getText().toString().trim().length()==0||editName.getText().toString().trim().length()==0||editMarks.getText().toString().trim().length()==0)
-                {
+                if (editRollno.getText().toString().trim().length() == 0 || editName.getText().toString().trim().length() == 0 || editMarks.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Please enter all values");
                     return;
                 }
@@ -66,20 +81,16 @@ class StudentInfoAppActivity extends AppCompatActivity {
         btnView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Checking empty roll number
-                if(editRollno.getText().toString().trim().length()==0)
-                {
+                if (editRollno.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Please enter Rollno");
                     return;
                 }
                 // Searching roll number
-                Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+editRollno.getText()+"'", null);
-                if(c.moveToFirst())
-                {
+                Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno='" + editRollno.getText() + "'", null);
+                if (c.moveToFirst()) {
                     editName.setText(c.getString(1));
                     editMarks.setText(c.getString(2));
-                }
-                else
-                {
+                } else {
                     showMessage("Error", "Invalid Rollno");
                     clearText();
                 }
@@ -93,22 +104,18 @@ class StudentInfoAppActivity extends AppCompatActivity {
 
 
                 // Checking empty roll number
-                if(editRollno.getText().toString().trim().length()==0)
-                {
+                if (editRollno.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Enter Rollno");
                     return;
                 }
                 // Searching roll number
-                Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+editRollno.getText()+"'", null);
-                if(c.moveToFirst())
-                {
+                Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno='" + editRollno.getText() + "'", null);
+                if (c.moveToFirst()) {
                     // Deleting record if found
-                    db.execSQL("DELETE FROM student WHERE rollno='"+editRollno.getText()+"'");
+                    db.execSQL("DELETE FROM student WHERE rollno='" + editRollno.getText() + "'");
                     showMessage("Success", "Record Deleted");
 
-                }
-                else
-                {
+                } else {
                     showMessage("Error", "Invalid Rollno");
                 }
                 clearText();
@@ -116,28 +123,23 @@ class StudentInfoAppActivity extends AppCompatActivity {
             }
 
 
-
         });
         btnModify.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                if(editRollno.getText().toString().trim().length()==0)
-                {
+                if (editRollno.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Enter Rollno");
                     return;
                 }
                 // Searching roll number
-                Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+editRollno.getText()+"'", null);
-                if(c.moveToFirst())
-                {
+                Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno='" + editRollno.getText() + "'", null);
+                if (c.moveToFirst()) {
                     // Modifying record if found
-                    db.execSQL("UPDATE student SET name='"+editName.getText()+"',marks='"+editMarks.getText()+
-                            "' WHERE rollno='"+editRollno.getText()+"'");
+                    db.execSQL("UPDATE student SET name='" + editName.getText() + "',marks='" + editMarks.getText() +
+                            "' WHERE rollno='" + editRollno.getText() + "'");
                     showMessage("Success", "Record Modified");
 
-                }
-                else
-                {
+                } else {
                     showMessage("Error", "Invalid Rollno");
                 }
                 clearText();
@@ -150,18 +152,16 @@ class StudentInfoAppActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 // Checking empty roll number
-                Cursor c=db.rawQuery("SELECT * FROM student", null);
-                if(c.getCount()==0)
-                {
+                Cursor c = db.rawQuery("SELECT * FROM student", null);
+                if (c.getCount() == 0) {
                     showMessage("Error", "No records found");
                     return;
                 }
-                StringBuffer buffer=new StringBuffer();
-                while(c.moveToNext())
-                {
-                    buffer.append("Student ID: "+c.getString(0)+"\n");
-                    buffer.append("Student Full Name: "+c.getString(1)+"\n");
-                    buffer.append("Student Class: "+c.getString(2)+"\n\n");
+                StringBuffer buffer = new StringBuffer();
+                while (c.moveToNext()) {
+                    buffer.append("Student ID: " + c.getString(0) + "\n");
+                    buffer.append("Student Full Name: " + c.getString(1) + "\n");
+                    buffer.append("Student Class: " + c.getString(2) + "\n\n");
                 }
                 showMessage("Student Details", buffer.toString());
             }
@@ -174,6 +174,7 @@ class StudentInfoAppActivity extends AppCompatActivity {
         });
 
     }
+
     public void showMessage(String title,String message)
     {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -189,5 +190,6 @@ class StudentInfoAppActivity extends AppCompatActivity {
         editMarks.setText("");
         editRollno.requestFocus();
     }
+
 
 }

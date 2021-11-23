@@ -58,7 +58,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         textView =findViewById(R.id.textView);
         toolbar = findViewById(R.id.toolbar);
 
+        // User Profile Click Activity from Home page to Student Info Activity
+
+        ImageView StudentInfo = findViewById(R.id.profile_img);
+
+        StudentInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), StudentInfo.class));
+                finish();
+            }
+        });
+
         //ToolBar
+        setSupportActionBar(toolbar);
 
 
         //Navigation Drawer Menu
@@ -68,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
 
 
     }
@@ -99,7 +113,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
+                break;
+
+            case R.id.nav_user_profile:
+                Intent studentInfo = new Intent (MainActivity.this,StudentInfo.class);
+                startActivity(new Intent(getApplicationContext(), StudentInfo.class));
+                finish();
+                break;
+
+
         }
+
+
 
         // reset password event listener (on the menu options)
         if (menuItem.getItemId() == R.id.resetUserPassword) {
@@ -109,4 +134,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(menuItem);
     }
 
+
+    // Calendar Api
 }
