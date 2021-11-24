@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +32,15 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
     Button registerUserBtn, gotoLogin;
 
     FirebaseAuth fAuth;
+    // Variables for the Check box
+    CheckBox Student, Teacher;
 
     //Variable for the menu to show inside the login activity- Michelle
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,24 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
 
         // Change Status Bar Color-Michelle
         getWindow().setStatusBarColor(ContextCompat.getColor(Register.this,R.color.background_header_color));
+
+        Student= (CheckBox)findViewById(R.id.StudentCheck);
+        Teacher = (CheckBox)findViewById(R.id.TeacherCheck);
+        Button registerBtn = (Button)findViewById(R.id.registerBtn);
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result = "Selected Profile";
+                if(Student.isChecked()){
+                    result += "\n Success Student Registration";
+                }
+                if(Teacher.isChecked()){
+                    result += "\n Success Teacher Registration";
+                }
+
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         registerFullName = findViewById(R.id.registerFullName);
         registerEmail = findViewById(R.id.registerEmail);
@@ -114,6 +137,7 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
                 });
             }
         });
+
 
 
         //Hooks for the menu - Michelle

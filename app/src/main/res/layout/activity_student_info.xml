@@ -135,11 +135,12 @@
             android:layout_marginEnd="24dp"
             android:background="@color/background_header_color"
             android:text="Add"
-            android:textColor="#4E342E"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e3" />
+            app:layout_constraintTop_toBottomOf="@+id/e3"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/b2"
@@ -154,7 +155,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e3" />
+            app:layout_constraintTop_toBottomOf="@+id/e3"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/b3"
@@ -169,7 +171,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b2" />
+            app:layout_constraintTop_toBottomOf="@+id/b2"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/b4"
@@ -184,9 +187,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b2" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/b2"
+            tools:ignore="TextContrastCheck" />
 
 
         <Button
@@ -202,7 +204,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b3" />
+            app:layout_constraintTop_toBottomOf="@+id/b3"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/b6"
@@ -217,7 +220,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b4" />
+            app:layout_constraintTop_toBottomOf="@+id/b4"
+            tools:ignore="TextContrastCheck" />
 
 
 

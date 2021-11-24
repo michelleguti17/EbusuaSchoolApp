@@ -103,7 +103,7 @@
 
           <Button
               android:id="@+id/loginbtn"
-              android:layout_width="0dp"
+              android:layout_width="170dp"
               android:layout_height="wrap_content"
               android:layout_marginStart="16dp"
               android:layout_marginTop="16dp"
@@ -117,7 +117,7 @@
 
               <Button
                   android:id="@+id/createAccountBtn"
-                  android:layout_width="0dp"
+                  android:layout_width="170dp"
                   android:layout_height="wrap_content"
                   android:layout_marginStart="16dp"
                   android:layout_marginTop="16dp"
