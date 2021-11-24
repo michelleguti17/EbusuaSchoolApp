@@ -64,7 +64,7 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
                     result += "\n Success Teacher Registration";
                 }
 
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
             }
         });
 
