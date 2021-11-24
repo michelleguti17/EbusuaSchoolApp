@@ -25,13 +25,22 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    EditText registerFullName, registerEmail, registerPassword, confirmPassword;
+    EditText registerFullName, registerEmail, registerPassword, confirmPassword, registerPhone;
     Button registerUserBtn, gotoLogin;
 
+    boolean valid = true;
+
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
     // Variables for the Check box
     CheckBox Student, Teacher;
 
@@ -50,33 +59,35 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
         // Change Status Bar Color-Michelle
         getWindow().setStatusBarColor(ContextCompat.getColor(Register.this,R.color.background_header_color));
 
-        Student= (CheckBox)findViewById(R.id.StudentCheck);
-        Teacher = (CheckBox)findViewById(R.id.TeacherCheck);
-        Button registerBtn = (Button)findViewById(R.id.registerBtn);
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String result = "Selected Profile";
-                if(Student.isChecked()){
-                    result += "\n Success Student Registration";
-                }
-                if(Teacher.isChecked()){
-                    result += "\n Success Teacher Registration";
-                }
-
-                //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        Student= (CheckBox)findViewById(R.id.isStudent);
+//        Teacher = (CheckBox)findViewById(R.id.isTeacher);
+//        Button registerBtn = (Button)findViewById(R.id.registerBtn);
+//        registerBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String result = "Selected Profile";
+//                if(Student.isChecked()){
+//                    result += "\n Success Student Registration";
+//                }
+//                if(Teacher.isChecked()){
+//                    result += "\n Success Teacher Registration";
+//                }
+//
+//                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         registerFullName = findViewById(R.id.registerFullName);
         registerEmail = findViewById(R.id.registerEmail);
         registerPassword = findViewById(R.id.registerPassword);
         confirmPassword = findViewById(R.id.confirmPassword);
+        registerPhone = findViewById(R.id.registerPhone);
 
         registerUserBtn = findViewById(R.id.registerBtn);
         gotoLogin = findViewById(R.id.gotoLogin);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +105,7 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
                 String email = registerEmail.getText().toString();
                 String password = registerPassword.getText().toString();
                 String confirmPass = confirmPassword.getText().toString();
+                String phone = registerPhone.getText().toString();
 
                 // validate if text fields are empty
                 if (fullName.isEmpty()) {
@@ -118,12 +130,34 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
                     confirmPassword.setError("Passwords do not match");
                     return;
                 }
+
+                // phone number field
+                if(phone.isEmpty()) {
+                    registerPhone.setError("Enter phone number");
+                    return;
+                }
                 // when the data is validated, register the user using firebase
                 Toast.makeText(Register.this, "Data Validated.", Toast.LENGTH_SHORT).show();
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
+                        FirebaseUser user = fAuth.getCurrentUser();
+
+                        // extract fullname, phone etc. data
+                        DocumentReference df = fStore.collection("Users").document(user.getUid());
+
+                        // store the data
+                        Map<String, Object> userInfo = new HashMap<>();
+                        userInfo.put("FullName", registerFullName.getText().toString());
+                        userInfo.put("UserEmail", registerEmail.getText().toString());
+                        userInfo.put("PhoneNumber", registerPhone.getText().toString());
+
+                        // access level
+                        // specify if user is admin
+                        userInfo.put("isUser", "1");
+
+                        df.set(userInfo);
                         // send user to the home page
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         // remove all the activity that was opened before main activity
@@ -190,5 +224,16 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
         }
 
         return true;
+    }
+
+    public boolean checkField(EditText textField){
+        if(textField.getText().toString().isEmpty()){
+            textField.setError("Error");
+            valid = false;
+        }else {
+            valid = true;
+        }
+
+        return valid;
     }
 }
