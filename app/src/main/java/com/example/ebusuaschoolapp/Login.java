@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -150,6 +151,13 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
                 Intent login = new Intent(Login.this,Login.class);
                 startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
+                break;
+
+            case R.id.nav_user_profile:
+                Intent studentInfo = new Intent (Login.this,StudentInfo.class);
+                startActivity(new Intent(getApplicationContext(), StudentInfo.class));
+                finish();
+                break;
 
 
         }

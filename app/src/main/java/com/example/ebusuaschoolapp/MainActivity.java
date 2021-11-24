@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
 
-        // logout button - Sanele
-        //ImageView logout = findViewById(R.id.logoutBtn); // changed from button
 
         //Change Status Bar Color
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this,R.color.background_header_color));

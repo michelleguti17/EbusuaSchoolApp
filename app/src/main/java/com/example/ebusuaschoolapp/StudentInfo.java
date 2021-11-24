@@ -48,7 +48,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
 
         // Change Status Bar Color-Michelle
         getWindow().setStatusBarColor(ContextCompat.getColor(StudentInfo.this,R.color.background_header_color));
-       
+
 
 // Initializing controls
 
@@ -243,6 +243,13 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
                 Intent studentInfo = new Intent(StudentInfo.this,StudentInfo.class);
                 startActivity(new Intent(getApplicationContext(), StudentInfo.class));
                 finish();
+                break;
+
+            case R.id.nav_login:
+                Intent login = new Intent(StudentInfo.this,Login.class);
+                startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
+                break;
 
 
         }
