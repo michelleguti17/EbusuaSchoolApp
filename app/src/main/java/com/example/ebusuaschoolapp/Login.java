@@ -159,6 +159,12 @@ public class Login extends AppCompatActivity implements NavigationView.OnNavigat
                 finish();
                 break;
 
+            case R.id.nav_calendar:
+                Intent calendar = new Intent (Login.this,Calendar.class);
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
+                finish();
+                break;
+
 
         }
 

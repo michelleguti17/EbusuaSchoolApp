@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentInfoAppActivity"
+    tools:context=".StudentInformation"
     android:id="@+id/drawer_layout"
     android:background="@drawable/orange_background"
     android:foregroundTint="#FFFFFF"
@@ -61,7 +61,7 @@
 
 
         <EditText
-            android:id="@+id/e1"
+            android:id="@+id/registerID"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/e2"
+            android:id="@+id/registerName"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
@@ -94,18 +94,18 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Student Full Name"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="#636161"
             android:textColorHint="#636161"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e1" />
+            app:layout_constraintTop_toBottomOf="@+id/registerID" />
 
 
         <EditText
-            android:id="@+id/e3"
+            android:id="@+id/registerClass"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
@@ -116,18 +116,39 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Student Class"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="#636161"
             android:textColorHint="#636161"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e2" />
+            app:layout_constraintTop_toBottomOf="@+id/registerName" />
+
+        <EditText
+            android:id="@+id/registerGrade"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/user_profile_register"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Student Grade"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="#636161"
+            android:textColorHint="#636161"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerClass" />
 
 
         <Button
-            android:id="@+id/b1"
+            android:id="@+id/AddBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -139,10 +160,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e3" />
+            app:layout_constraintTop_toBottomOf="@+id/registerGrade"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/b2"
+            android:id="@+id/DeleteBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -154,10 +176,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/e3" />
+            app:layout_constraintTop_toBottomOf="@+id/registerGrade"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/b3"
+            android:id="@+id/ModifyBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -169,10 +192,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b2" />
+            app:layout_constraintTop_toBottomOf="@+id/DeleteBtn"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/b4"
+            android:id="@+id/ViewBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -184,13 +208,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b2" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/DeleteBtn"
+            tools:ignore="TextContrastCheck" />
 
 
         <Button
-            android:id="@+id/b5"
+            android:id="@+id/ViewAllBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -202,10 +225,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b3" />
+            app:layout_constraintTop_toBottomOf="@+id/ModifyBtn"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/b6"
+            android:id="@+id/DetailsBtn"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -217,7 +241,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b4" />
+            app:layout_constraintTop_toBottomOf="@+id/ViewBtn"
+            tools:ignore="TextContrastCheck" />
 
 
 

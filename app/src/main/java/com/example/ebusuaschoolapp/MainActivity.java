@@ -68,6 +68,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        // Student Profile Click Activity from Home page to StudentProfile (
+        // Only for test is using the courses icon then I will change it to the profile Icon when administrators profile are ready)
+
+        ImageView StudentProfile = findViewById(R.id.course_main_img);
+
+        StudentProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), StudentProfile.class));
+                finish();
+            }
+        });
+
+        // Calendar click activity from Home Page to Calendar
+
+        ImageView Calendar = findViewById(R.id.calendar_main_img);
+
+        Calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
+                finish();
+            }
+        });
+
+
         //ToolBar
         setSupportActionBar(toolbar);
 
@@ -118,6 +144,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(getApplicationContext(), StudentInfo.class));
                 finish();
                 break;
+
+            case R.id.nav_calendar:
+                Intent studentInformation = new Intent (MainActivity.this,Calendar.class);
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
+                finish();
+                break;
+
 
 
         }

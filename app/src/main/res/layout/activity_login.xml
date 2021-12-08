@@ -57,6 +57,7 @@
                 app:srcCompat="@drawable/school_icon"
                 tools:ignore="MissingConstraints" />
 
+
       <EditText
           android:id="@+id/loginEmail"
           android:layout_width="0dp"
@@ -79,8 +80,7 @@
           app:layout_constraintStart_toStartOf="parent"
           app:layout_constraintTop_toTopOf="parent" />
 
-
-                <EditText
+      <EditText
                     android:id="@+id/loginPassword"
                     android:layout_width="0dp"
                     android:layout_height="48dp"

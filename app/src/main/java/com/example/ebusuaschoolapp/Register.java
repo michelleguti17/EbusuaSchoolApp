@@ -136,6 +136,8 @@ public class Register extends AppCompatActivity implements NavigationView.OnNavi
                     registerPhone.setError("Enter phone number");
                     return;
                 }
+
+
                 // when the data is validated, register the user using firebase
                 Toast.makeText(Register.this, "Data Validated.", Toast.LENGTH_SHORT).show();
 

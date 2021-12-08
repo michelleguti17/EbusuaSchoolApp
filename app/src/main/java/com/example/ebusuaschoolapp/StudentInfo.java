@@ -26,6 +26,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
     EditText editRollno;
     EditText editName;
     EditText editMarks;
+    EditText editGrades;
     Button btnAdd;
     Button btnDelete;
     Button btnModify;
@@ -55,6 +56,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
         editRollno = (EditText) findViewById(R.id.e1);
         editName = (EditText) findViewById(R.id.e2);
         editMarks = (EditText) findViewById(R.id.e3);
+        editGrades = (EditText) findViewById(R.id.e4);
         btnAdd = (Button) findViewById(R.id.b1);
         btnDelete = (Button) findViewById(R.id.b2);
         btnModify = (Button) findViewById(R.id.b3);
@@ -65,7 +67,9 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
         // Creating database and table
 
         final SQLiteDatabase db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR,grades VARCHAR);");
+
+
 
 
 // Registering event handlers
@@ -74,13 +78,13 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
             public void onClick(View v) {
 
                 // Checking empty fields
-                if (editRollno.getText().toString().trim().length() == 0 || editName.getText().toString().trim().length() == 0 || editMarks.getText().toString().trim().length() == 0) {
+                if (editRollno.getText().toString().trim().length() == 0 || editName.getText().toString().trim().length() == 0 || editMarks.getText().toString().trim().length() == 0 || editGrades.getText().toString().trim().length() == 0) {
                     showMessage("Error", "Please enter all values");
                     return;
                 }
                 // Inserting record
                 db.execSQL("INSERT INTO student VALUES('" + editRollno.getText() + "','" +
-                        editName.getText() + "','" + editMarks.getText() + "');");
+                        editName.getText() + "','" + editMarks.getText() + "','" + editGrades.getText() + "');");
                 showMessage("Success", "Record added");
                 clearText();
             }
@@ -94,9 +98,11 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
                 }
                 // Searching roll number
                 Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno='" + editRollno.getText() + "'", null);
+
                 if (c.moveToFirst()) {
                     editName.setText(c.getString(1));
                     editMarks.setText(c.getString(2));
+                    editGrades.setText(c.getString(3));
                 } else {
                     showMessage("Error", "Invalid Rollno");
                     clearText();
@@ -142,7 +148,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
                 Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno='" + editRollno.getText() + "'", null);
                 if (c.moveToFirst()) {
                     // Modifying record if found
-                    db.execSQL("UPDATE student SET name='" + editName.getText() + "',marks='" + editMarks.getText() +
+                    db.execSQL("UPDATE student SET name='" + editName.getText() + "',marks='" + editMarks.getText() + "',grades='" + editGrades.getText() +
                             "' WHERE rollno='" + editRollno.getText() + "'");
                     showMessage("Success", "Record Modified");
 
@@ -169,6 +175,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
                     buffer.append("Student ID: " + c.getString(0) + "\n");
                     buffer.append("Student Full Name: " + c.getString(1) + "\n");
                     buffer.append("Student Class: " + c.getString(2) + "\n\n");
+                    buffer.append("Student Grades: " + c.getString(3) + "\n\n");
                 }
                 showMessage("Student Details", buffer.toString());
             }
@@ -224,6 +231,7 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
         editRollno.setText("");
         editName.setText("");
         editMarks.setText("");
+        editGrades.setText("");
         editRollno.requestFocus();
     }
 
@@ -248,6 +256,12 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
             case R.id.nav_login:
                 Intent login = new Intent(StudentInfo.this,Login.class);
                 startActivity(new Intent(getApplicationContext(), Login.class));
+                finish();
+                break;
+
+            case R.id.nav_calendar:
+                Intent studentInformation = new Intent (StudentInfo.this,CalendarActivity.class);
+                startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
                 finish();
                 break;
 
