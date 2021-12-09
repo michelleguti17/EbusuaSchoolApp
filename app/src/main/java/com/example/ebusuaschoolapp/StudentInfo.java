@@ -260,8 +260,8 @@ public class StudentInfo extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.nav_calendar:
-                Intent studentInformation = new Intent (StudentInfo.this,CalendarActivity.class);
-                startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+                Intent studentInformation = new Intent (StudentInfo.this, Calendar.class);
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
                 finish();
                 break;
 

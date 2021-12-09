@@ -25,6 +25,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // Sanele - Firebase authentication variables
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
     TextView textView;
+
+
+    private static final String TAG = "MainActivity";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +76,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        // User Profile Click Activity from Home page to Calendar Activity
+        ImageView Calendar = findViewById(R.id.calendar_main_img);
+        Calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
+                finish();
+            }
+        });
+
         // Student Profile Click Activity from Home page to StudentProfile (
         // Only for test is using the courses icon then I will change it to the profile Icon when administrators profile are ready)
 
@@ -81,9 +99,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        // Calendar click activity from Home Page to Calendar
 
-        ImageView Calendar = findViewById(R.id.calendar_main_img);
+
 
         Calendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_calendar:
-                Intent studentInformation = new Intent (MainActivity.this,Calendar.class);
+                Intent calendar = new Intent(MainActivity.this, Calendar.class);
                 startActivity(new Intent(getApplicationContext(), Calendar.class));
                 finish();
                 break;

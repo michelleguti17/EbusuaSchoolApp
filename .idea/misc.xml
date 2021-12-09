@@ -3,35 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2301801801801802" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/Ebusua_icon_school_background.xml" value="0.2703125" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/Ebusua_school_icon_background.xml" value="0.12477477477477478" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/custom_input.xml" value="0.2301801801801802" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/ebusua_school_icon_background.xml" value="0.1398148148148148" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/home_icon.xml" value="0.2703125" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/drawable/user_profile_icon.xml" value="0.2301801801801802" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_calendar.xml" value="0.2" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_calendar2.xml" value="0.20045045045045046" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_register.xml" value="0.20270270270270271" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_reset_password.xml" value="0.21621621621621623" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_student_info.xml" value="0.21621621621621623" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_student_info_app.xml" value="0.21621621621621623" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_student_information.xml" value="0.264" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/activity_student_profile.xml" value="0.21621621621621623" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/calendar.xml" value="0.2126126126126126" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/calendar_layout.xml" value="0.21621621621621623" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/layout/header.xml" value="0.264" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/menu/main_menu.xml" value="0.25025641025641027" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/Ebusua_school_icon.xml" value="0.12477477477477478" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/ebusua_school_icon_round.xml" value="0.136" />
         <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.14635416666666667" />
-        <entry key="..\:/Documents/BYU/CS 246/School App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2301801801801802" />
         <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Sanele/AndroidStudioProjects/EbusuaSchoolApp/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/lenovo/Desktop/EbusuaSchoolApp/app/src/main/res/layout/activity_calendar.xml" value="0.14628623188405798" />
+        <entry key="..\:/Users/lenovo/Desktop/EbusuaSchoolApp/app/src/main/res/layout/activity_event.xml" value="0.14764492753623187" />
+        <entry key="..\:/Users/lenovo/Desktop/EbusuaSchoolApp/app/src/main/res/layout/calendar_layout.xml" value="0.1" />
       </map>
     </option>
   </component>

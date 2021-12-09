@@ -87,8 +87,8 @@ public class StudentProfile extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.nav_calendar:
-                Intent studentInformation = new Intent (StudentProfile.this,CalendarActivity.class);
-                startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+                Intent studentInformation = new Intent (StudentProfile.this,Calendar.class);
+                startActivity(new Intent(getApplicationContext(), Calendar.class));
                 finish();
                 break;
 
